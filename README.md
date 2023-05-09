@@ -18,21 +18,13 @@ The project is structured as follows:
 
 ```
 ├── pages/
-│   ├── _app.js
-│   ├── index.js
-│   └── products.js
+│   
 ├── public/
-│   ├── images/
-│   └── styles/
+│   
 ├── components/
-│   ├── Header.js
-│   ├── Hero.js
-│   ├── Product.js
-│   ├── ProductList.js
-│   └── ...
-├── utils/
-│   ├── api.js
-│   └── ...
+│   
+├── styles/
+│   
 └── README.md
 ```
 
