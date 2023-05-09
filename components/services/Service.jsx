@@ -1,4 +1,7 @@
-import React from "react";
+import { motion} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import React from 'react';
+
 
 const Services = [
     {
@@ -18,18 +21,61 @@ const Services = [
     }
 ]
 
+
 function Service() {
+  const [ref, inView] = useInView({
+    threshold: 0.5
+  });
+
+
+  const variants = {
+    hidden: 
+    { opacity: 1,
+      x:120,
+
+    },
+    visible:
+     { 
+      opacity: 1,
+      x:0 
+    }
+  };
+
   return (
     <>
-      <div className="w-full  h-[500px] flex flex-col items-start justify-center">
-        <div className="w-3/4 h-[70px] flex items-center justify-start">
-          <h1 className="text-3xl text-start ml-[5%] font-medium text-secondary leading-relaxed">
+      <div
+       className="w-full  h-[500px] flex flex-col items-start justify-center">
+        <div ref={ref}  className="w-3/4 h-[70px] flex items-center justify-start">
+         {
+              inView && (
+                <motion.h1
+                // initial="hidden"
+                animate="visible"
+                variants={variants}
+                transition={{ duration: 1 }}
+
+
+
+           className="text-3xl text-start ml-[5%] font-medium text-secondary leading-relaxed">
             How to use delivery{" "}
             <span className="border-b-4 border-primary">Service</span>
-          </h1>
+          </motion.h1>
+              )
+
+
+         }
         </div>
-        <div className="w-full h-full">
-          <div class="grid grid-cols-3">
+        <div   className="w-full h-full">
+       
+          {
+              inView && (
+                <motion.div
+                initial="hidden"
+                animate="visible"
+                variants={variants}
+                transition={{ duration: 2 }}
+
+           class="grid grid-cols-3">
             {
                 Services.map((service,index)=>{
                     return(
@@ -52,7 +98,11 @@ function Service() {
                 }
                 )
             }
-          </div>
+       
+          </motion.div>
+              )
+
+          }
         </div>
       </div>
     </>

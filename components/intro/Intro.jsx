@@ -1,8 +1,10 @@
 import React from 'react'
 import { FiShoppingCart } from "react-icons/fi";
 import Chips from './Chips';
+import { motion } from 'framer-motion';
 
 function Intro() {
+    
   return (
     <div 
      className='w-full  flex items-center justify-center'>
@@ -10,6 +12,12 @@ function Intro() {
         className='flex w-full h-3/4 bg-cuaternary'>
             <div
             className=' flex-1 w-1/2  flex items-center justify-center h-[500px]'>
+            <motion.div
+            initial={{opacity:0,x:-150}}
+            animate={{opacity:1,x:0}}
+            transition={{delay:0.5,duration:2}}
+            className='flex flex-col items-center justify-center w-3/4 z-30'>
+            
                 <div
                 className='flex flex-col items-center justify-center w-3/4'>
                     <h1
@@ -38,17 +46,29 @@ function Intro() {
                         </p>
                     </div>
                 </div>
+            </motion.div>
             </div>
+        <motion.div
+        initial={{opacity:0,x:150}}
+        animate={{opacity:1,x:0}}
+        transition={{delay:0.5,duration:2}}
+        className='flex-1 w-1/2 flex relative items-center justify-center'>
+
             <div
             className='flex-1 w-1/2 flex relative items-center justify-center'>
+
             <div
             className=' h-[450px] w-[450px]  bg-secondary flex items-center justify-center rounded-full'>
+           
                 <img
                 className='h-[350px] w-[350px] object-cover'
                 src='/image/coffee.png'
                 alt='coffee'
                 />
+               
             </div>
+          
+      
             {/*  chips  */}
             <div
             className='flex flex-col items-center justify-center w-[100px] h-[50px] absolute right-[150px] inset-y-20'>
@@ -73,7 +93,9 @@ function Intro() {
             </div>
 
             </div>
+        </motion.div>
         </div>
+        
     </div>
   )
 }

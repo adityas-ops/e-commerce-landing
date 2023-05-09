@@ -1,4 +1,5 @@
-import React from 'react'
+import { motion} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import Cards from './Cards'
 const testimonials = [
     {
@@ -23,9 +24,26 @@ const testimonials = [
 ]
 
 function Testimonial() {
+    const [ref, inView] = useInView({
+    threshold: 0.5
+  });
+
+
+  const variants = {
+    hidden: 
+    { opacity: 0,
+      x:320,
+      
+    },
+    visible:
+     { 
+      opacity: 1,
+      x:0 
+    }
+  };
   return (
     <>
-        <div
+        <div 
         className='h-[70vh] w-full flex justify-start items-center mt-10'>
             <div className='w-2/3 h-5/6 flex flex-col justify-center items-center bg-cuaternary rounded-tr-3xl rounded-br-3xl relative'>
                 <div className='w-2/3 h-3/6 flex justify-start flex-col items-start '>
@@ -39,14 +57,23 @@ function Testimonial() {
                     </p>
                 </div>
             </div>
-            <div className='w-[60%] h-[40%] flex justify-center items-center absolute right-0'>
-                <div className="grid grid-cols-3 h-full w-full">
+            <div ref={ref} className='w-[60%] h-[40%] flex justify-center items-center absolute right-0'>
+                {
+                    inView && (
+                        <motion.div 
+                initial="hidden"
+                 animate="visible"
+                variants={variants}
+                transition={{ duration: 2 }}
+                 className="grid grid-cols-3 h-full w-full">
                     {
                         testimonials.map((item) => (
                             <Cards key={item.id} item={item}/>
                         ))
                     }
-                </div>
+                </motion.div>
+                    )
+                }
             </div>
         </div>
     </>

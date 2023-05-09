@@ -1,18 +1,47 @@
-import React from 'react'
+import { motion} from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 function About() {
+    const [ref, inView] = useInView({
+    threshold: 0.5
+  });
+
+
+  const variants = {
+    hidden: 
+    { opacity: 0,
+      x:-120,
+      
+    },
+    visible:
+     { 
+      opacity: 1,
+      x:0 
+    }
+  };
+
   return (
     <>
-        <div 
+
+            
+               
+                    <div 
         className='h-[80vh] w-full flex justify-center items-center'>
             <div
             className="grid grid-cols-2 w-full h-[500px] bg-cuaternary ">
-                <div className="w-full h-full flex items-center justify-end relative">
-                    <img
+                <div ref={ref} className=" w-full h-full flex items-center justify-end relative">
+                {inView && (
+                    <motion.img
+                    initial="hidden"
+                    animate="visible"
+                    variants={variants}
+                    transition={{ duration: 1 }}
+
                     src="/image/about/aboutcoffee.png"
                     alt=""
                     className=" object-cover absolute top-[-100px] mr-10"
                     />
+                )}
                 </div>
                 <div className="w-full h-full flex items-center justify-center">
                     <div className="w-[70%] h-3/4 flex justify-start flex-col">

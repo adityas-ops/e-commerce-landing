@@ -7,7 +7,11 @@ import Special from "@/components/special/Special"
 import Testimonial from "@/components/testimonial/Testimonial"
 import Contact from "@/components/contact/Contact"
 
+
 export default function Home() {
+  //  create varient when i scroll then animation trigger 
+ 
+
   return (
   <>
    <div
@@ -29,7 +33,16 @@ export default function Home() {
       />
     </div>
     <Popular />
-    <Service />
+    {/* <motion.div
+    variants={vari}
+    initial="offscreen"
+    animate="onscreen"
+
+
+    > */}
+ <Service />
+    {/* </motion.div> */}
+   
     <About />
     <Special/>
     <Testimonial/>
