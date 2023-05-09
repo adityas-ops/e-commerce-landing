@@ -1,16 +1,23 @@
+import Image from 'next/image'
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import { FiShoppingCart } from 'react-icons/fi'
 
+
 export default function Cards({item}) {
+  
   return (
    <>
-        <div className="w-[350px] h-[380px] bg-[#ffffff] rounded-[20px] flex m-5  flex-col items-center  justify-center shadow-2xl transition-all duration-300 hover:scale-105">
-          <div className="w-[90%] flex items-center justify-center relative">
-            <img
+        <div  className="w-[350px] h-[380px] bg-[#ffffff] rounded-[20px] flex m-5  flex-col items-center  justify-center shadow-2xl transition-all duration-300 hover:scale-105">
+          <div  
+          className="w-[90%] flex items-center justify-center relative">
+            <Image
               className="h-[220px] w-full object-cover rounded-xl"
               src={item.image}
               alt={item.name}
+              width={300}
+              height={200}
+              loading="lazy"
             />
             <div className="w-[70px] h-[30px] bg-[#ffffff7a] rounded-full flex items-center justify-center absolute top-2 left-2">
             <div

@@ -1,4 +1,5 @@
 import { motion} from 'framer-motion';
+import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 function About() {
@@ -22,25 +23,27 @@ function About() {
 
   return (
     <>
-
-            
-               
-                    <div 
+  <div
         className='h-[80vh] w-full flex justify-center items-center'>
             <div
             className="grid grid-cols-2 w-full h-[500px] bg-cuaternary ">
                 <div ref={ref} className=" w-full h-full flex items-center justify-end relative">
                 {inView && (
-                    <motion.img
+                    <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={variants}
                     transition={{ duration: 1 }}
-
-                    src="/image/about/aboutcoffee.png"
-                    alt=""
                     className=" object-cover absolute top-[-100px] mr-10"
+                    >
+                    <Image
+                    src='/image/about/aboutcoffee.png'
+                    alt='about'
+                    width={400}
+                    height={300}
+                    loading="lazy"
                     />
+                    </motion.div>
                 )}
                 </div>
                 <div className="w-full h-full flex items-center justify-center">

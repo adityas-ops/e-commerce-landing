@@ -2,6 +2,7 @@ import React from 'react'
 import { FiShoppingCart } from "react-icons/fi";
 import Chips from './Chips';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 function Intro() {
     
@@ -60,10 +61,13 @@ function Intro() {
             <div
             className=' h-[450px] w-[450px]  bg-secondary flex items-center justify-center rounded-full'>
            
-                <img
+                <Image
                 className='h-[350px] w-[350px] object-cover'
                 src='/image/coffee.png'
                 alt='coffee'
+                width={350}
+                height={350}
+                loading="lazy"
                 />
                
             </div>

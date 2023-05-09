@@ -1,6 +1,7 @@
 import React from "react";
 import Cards from "./Cards";
-
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 const Specials = [
     {
         image:'/image/special/c5.png',
@@ -53,6 +54,23 @@ const Specials = [
 ]
 
 function Special() { 
+  const [ref, inView] = useInView({
+    threshold: 0.5,
+  });
+
+
+  const variants = {
+    hidden: 
+    { opacity: 0,
+      y:220,
+
+    },
+    visible:
+     { 
+      opacity: 1,
+      y:0 
+    }
+  };
   return (
     <>
       <div className="w-full h-[120vh] flex justify-center items-center">
@@ -63,11 +81,18 @@ function Special() {
               <span className="border-b-4 border-primary">for you</span>
             </h1>
           </div>
-          <div class="mt-8 ml=6 w-full h-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  laptop:grid-cols-3">
+          <div ref={ref} class="mt-8 ml=6 w-full h-full grid grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-3  laptop:grid-cols-3">
            {
                 Specials.map((item,index)=>{
                     return(
+                        <motion.div
+                        variants={variants}
+                        initial="hidden"
+                        animate={inView ? "visible" : "hidden"}
+                        transition={{ duration: 0.5 }}
+                        >
                         <Cards item={item} key={index}/>
+                        </motion.div>
                     )
                 }
                 )

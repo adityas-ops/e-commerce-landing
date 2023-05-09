@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 function Cards({item}) {
@@ -7,10 +8,13 @@ function Cards({item}) {
         className='w-[280px] h-[250px] flex flex-col justify-start items-start  relative object-cover'>
             <div
                  className='w-[70%] h-full bg-[#FFCB7C] flex justify-center items-center'>
-            <img
+            <Image
             className='w-[97%] h-[98%]'
             src={item.image}
             alt="profile"
+            width={300}
+            height={200}
+            loading="lazy"
             />
             </div>
             <div className="w-[80%] h-[40%] bg-[#c5a56a95] absolute right-1 bottom-4 rounded-lg flex justify-center items-center">

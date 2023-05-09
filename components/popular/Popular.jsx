@@ -27,12 +27,18 @@ function Popular() {
     threshold: 0.5,
   });
 
+
   const variants = {
-    hidden: { opacity: 0, x: -320 },
-    visible: {
-      opacity: 1,
-      x: 0,
+    hidden: 
+    { opacity: 1,
+      x:-120,
+
     },
+    visible:
+     { 
+      opacity: 1,
+      x:0 
+    }
   };
   return (
     <>
@@ -50,11 +56,10 @@ function Popular() {
           {
             inView && (
                 <motion.div
-            // initial={{opacity:0,x:150}}
-            initial="hidden"
-                 animate="visible"
+             initial="hidden"
+                animate="visible"
                 variants={variants}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 2 }}
             className="flex-1 w-full h-full   flex relative items-center justify-center"
           >
             <div className="w-[92%] flex h-[350px] z-10 absolute bottom-[90px] items-center justify-evenly">

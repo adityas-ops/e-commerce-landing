@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function Contact() {
@@ -5,10 +6,12 @@ function Contact() {
     <>
       <div className="h-[500px] w-full flex justify-center items-center  ">
         <div className="h-[65%] w-[80%] relative">
-          <img
+          <Image
             className="w-full h-full object-cover brightness-50 rounded-3xl"
             src="/im.png"
             alt="contact"
+            width={500}
+            height={500}
           />
           <div className="h-full w-full flex justify-center flex-col items-center absolute bottom-4 right-0">
             <p className="text-3xl text-center font-bold text-white leading-relaxed">
