@@ -42,5 +42,5 @@ The project is structured as follows:
 
 ## Credits
 
-This project was Developed by  [Aditya Sharma](https://adityanext.vercel.app). 
+This project is Developed by  [Aditya Sharma](https://adityanext.vercel.app). 
 
