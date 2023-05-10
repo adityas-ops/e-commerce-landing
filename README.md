@@ -1,6 +1,6 @@
 # E-commerce Landing Page
 
-This is an e-commerce landing page built using Next.js, a popular React-based web framework. The landing page features a responsive design, interactive animations, and a product showcase section.
+This is an e-commerce landing page built using Next.js, a popular React-based web framework. The landing page features a interactive animations, and a product showcase section.
 
 ## Getting Started
 
@@ -30,8 +30,8 @@ The project is structured as follows:
 
 - `pages/` contains the Next.js pages that make up the landing page. `index.js` is the main landing page, `products.js` is a secondary page that displays product details, and `_app.js` is a custom Next.js component that wraps all pages to provide a consistent layout and global styles.
 - `public/` contains static assets such as images and stylesheets.
-- `components/` contains reusable React components that are used to build the landing page. These include the `Header`, `Hero`, `Product`, and `ProductList` components, among others.
-- `utils/` contains utility functions and other code that is not specific to any one component.
+- `components/` contains reusable React components that are used to build the landing page. These include the `Header`, `about`, `contact` `popular` `services` `special` `testimonial`, and `intro`  components, among others.
+- `style/` contains Css files .
 
 ## Technologies Used
 
@@ -42,5 +42,5 @@ The project is structured as follows:
 
 ## Credits
 
-This project was inspired by a design created by [Aditya Sharma](https://adityanext.vercel.com). 
+This project was Developed by  [Aditya Sharma](https://adityanext.vercel.app). 
 
